@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timer</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.timer {
+    text-align: center;
+}
+
+.timer h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
+.timer input[type="number"] {
+    font-size: 1.5em;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+.timer button {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.timer button:hover {
+    background-color: darkgray;
+}
+
+.log {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.log button {
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="timer">
+    
+    <h1 style="text-align:center;font-family: Georgia, serif;font-size: 350%;"> Timer </h1>
+
+    <input type="number" id="minutesInput" min="1" placeholder="Minutes">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resumeTimer()">Resume</button>
+    <h1 id="timerDisplay">00:00</h1>
+    <div class="log">
+        <button onclick="logTimer()">Log Timer</button>
+        <button onclick="clearLog()">Clear Log</button>
+        <ul id="logList"></ul>
+    </div>
+</div>
+
+<script>
+let timer;
+let totalSeconds = 0;
+let timerLog = [];
+let isPaused = false;
+
+function startTimer() {
+    clearInterval(timer);
+    const minutes = parseInt(document.getElementById('minutesInput').value);
+    if (isNaN(minutes) || minutes <= 0) {
+        alert('Please enter a valid number of minutes.');
+        return;
+    }
+    if(isPaused){
+        timer = setInterval(updateTimer, 1000);
+        isPaused = false;
+    }else{
+
+    
+    totalSeconds = minutes * 60;
+    timer = setInterval(updateTimer, 1000);
+}
+}
+function stopTimer(){
+    clearInterval(timer);
+    isPaused = true;
+}
+
+function resumeTimer(){
+    if(isPaused){
+        startTimer();
+    }
+}
+
+function updateTimer() {
+    totalSeconds--;
+    if (totalSeconds < 0) {
+        clearInterval(timer);
+        document.getElementById('timerDisplay').textContent = 'Time\'s up!';
+        return;
+    }
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    document.getElementById('timerDisplay').textContent = formatTime(minutes) + ':' + formatTime(seconds);
+}
+
+function formatTime(time) {
+    return time < 10 ? '0' + time : time;
+}
+
+function logTimer() {
+    const minutes = parseInt(document.getElementById('minutesInput').value);
+    const timeUsed = `${minutes} minute(s)`;
+    timerLog.push(timeUsed);
+    updateLog();
+}
+
+function updateLog() {
+    const logList = document.getElementById('logList');
+    logList.innerHTML = '';
+    timerLog.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${index + 1}. ${item}`;
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = function() {
+            deleteLogItem(index);
+        };
+        li.appendChild(deleteButton);
+        logList.appendChild(li);
+    });
+}
+
+function deleteLogItem(index) {
+    timerLog.splice(index, 1);
+    updateLog();
+}
+
+function clearLog() {
+    timerLog = [];
+    updateLog();
+}
+</script>
+
+</body>
+</html>

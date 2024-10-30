@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homework Log</title>
+<h1 style="text-align:center;font-family: Georgia, serif;font-size: 350%;">- Homework Log - </h1>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between; /* Adjusted to space-between */
+        width: 80%; /* Added width for better layout */
+    }
+
+    .form-container {
+        flex: 1; /* Added flex to take remaining space */
+        margin-right: 20px; /* Added margin for spacing */
+    }
+
+    .log-container {
+        flex: 1; /* Added flex to take remaining space */
+    }
+
+    .container button {
+        padding: 2px 5px;
+        font-size: 1.1em;
+        background-color: gray;
+        color: white;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .container button:hover {
+        background-color: darkgray;
+    }
+
+    /* Style for task items */
+    .task-item {
+        margin-bottom: 10px;
+    }
+
+    .btn-container {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h1>Add Task</h1>
+         <div>
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject">
+        </div>
+        <div>
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate">
+        </div>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="priority">Priority:</label>
+            <select id="priority">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+        </div>
+        <button onclick="addTask()">Add Task</button>
+        <button onclick="clearTasks()">Clear All Tasks</button>
+    </div>
+    <div class="log-container">
+        <h1>Homework Log</h1>
+        <div id="taskList"></div>
+        <div class="btn-container">
+            <button onclick="moveHighPriorityTasks()">Move High Priority Tasks</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addTask() {
+        const subject = document.getElementById('subject').value;
+        const dueDate = document.getElementById('dueDate').value;
+        const name = document.getElementById('name').value;
+        const priority = document.getElementById('priority').value;
+
+        const currentDate = new Date();
+        const dueDateObj = new Date(dueDate);
+        const daysLeft = Math.ceil((dueDateObj - currentDate) / (1000 * 60 * 60 * 24));
+
+        const taskItem = document.createElement('div');
+        taskItem.classList.add('task-item');
+        taskItem.innerHTML = `
+            <strong>Subject:</strong> ${subject}<br>
+            <strong>Due Date:</strong> ${dueDate}<br>
+            <strong>Days Left:</strong> ${daysLeft}<br>
+            <strong>Name:</strong> ${name}<br>
+            <strong>Priority:</strong> ${priority}<br>
+            <button onclick="deleteTask(this)">Delete</button><br><br>
+        `;
+        document.getElementById('taskList').appendChild(taskItem);
+    }
+
+    function deleteTask(taskElement) {
+        taskElement.parentNode.remove();
+    }
+
+    function clearTasks() {
+        document.getElementById('taskList').innerHTML = '';
+    }
+
+    function moveHighPriorityTasks() {
+        const taskList = document.getElementById('taskList');
+        const highPriorityTasks = taskList.querySelectorAll('.task-item');
+
+        highPriorityTasks.forEach(task => {
+            if (task.querySelector('strong').innerText.includes('High')) {
+                taskList.prepend(task);
+            }
+        });
+    }
+</script>
+</body>
+</html>
