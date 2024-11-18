@@ -56,5 +56,42 @@ h1, h2, h3, h4, h5, h6{
 }
 }
 
+
+
+/* styles1.css */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.hover-button {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  background: #f0f0f0;
+  border: 2px solid #c0c0c0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hover-button:hover {
+  background: #e0e0e0;
+  border-color: #a0a0a0;
+  color: #000;
+  transform: translateY(-2px);
+}
+
 /* STYLE IMAGES */
 /* STYLE NAV BAR */
