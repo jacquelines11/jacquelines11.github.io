@@ -55,10 +55,7 @@ h1, h2, h3, h4, h5, h6{
   color: white;
 }
 }
-
-
-
-/* styles1.css */
+/* styles.css */
 body {
   display: flex;
   justify-content: center;
@@ -70,7 +67,8 @@ body {
 }
 
 .button-container {
-  text-align: center;
+  display: flex;
+  gap: 20px; /* Space between buttons */
 }
 
 .hover-button {
@@ -92,6 +90,8 @@ body {
   color: #000;
   transform: translateY(-2px);
 }
+
+
 
 /* STYLE IMAGES */
 /* STYLE NAV BAR */
