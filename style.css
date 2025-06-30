@@ -174,7 +174,7 @@ h1, h2 {
 }
 
 .hover-button {
-    background-color: #dcdcff;
+    background-color: ##949494;
     color: #333;
     padding: 12px 20px;
     border-radius: 12px;
@@ -185,7 +185,7 @@ h1, h2 {
 }
 
 .hover-button:hover {
-    background-color: #bcbcf2;
+    background-color: ##7f7f7f;
     transform: translateY(-2px);
 }
 
