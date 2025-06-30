@@ -200,20 +200,30 @@ ul li::before {
     content: "✨ ";
 }
 
-/* Images */
+/* Images - Smaller aesthetic */
 .responsive-img {
-    max-width: 100%;
+    width: 150px;   /* Smaller size */
     height: auto;
     display: block;
     margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .image-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
 }
+
+.image-row img {
+    width: 130px;   /* Smaller consistent size in rows */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
 
 .project-detail {
     background: #fff;
