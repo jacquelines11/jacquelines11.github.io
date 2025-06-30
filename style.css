@@ -93,6 +93,135 @@ body {
   transform: translateY(-2px);
 }
 
+/* Base aesthetic */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #f9f9fb;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #4a4a4a;
+}
+
+.intro {
+    text-align: center;
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+/* Navigation */
+.topnav {
+    overflow: hidden;
+    background-color: #e0e0f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.topnav a {
+    text-decoration: none;
+    color: #4a4a4a;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.topnav a:hover {
+    background-color: #cfcff5;
+}
+
+.icon {
+    display: none;
+}
+
+#myLinks {
+    display: flex;
+    gap: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    #myLinks {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .icon {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.hover-button {
+    background-color: #dcdcff;
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.hover-button:hover {
+    background-color: #bcbcf2;
+    transform: translateY(-2px);
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul li::before {
+    content: "✨ ";
+}
+
+/* Images */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.image-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.project-detail {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
 
 
 /* STYLE IMAGES */
