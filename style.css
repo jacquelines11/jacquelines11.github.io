@@ -1,102 +1,10 @@
-/* STYLE SECTIONING TAGS */
-body {
- background-color: #edede9; 
-}
+/* =============================== */
+/* BASE STYLES */
+/* =============================== */
 
-/* STYLE TEXT */
-
-h1 {
-  color: black;
-  }
-
-h1, h2, h3, h4, h5, h6{
-  margin-top:1px;
-  margin-bottom:1px;
-}
-/* Style the navigation menu */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-  position: relative;
-}
-
-/* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
-  display: none;
-}
-
-/* Style navigation menu links */
-.topnav a {
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
-}
-
-/* Style the hamburger menu */
-.topnav a.icon {
-  background: black;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-/* Add a grey background color on mouse-over */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-/* Style the active link (or home/logo) */
-.active {
-  background-color: #edede9;
-  color: white;
-}
-}
-
-
-/* styles.css */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
-}
-
-.button-container {
-  display: flex;
-  gap: 40px; /* Increased space between buttons */
-}
-
-.hover-button {
-  display: inline-block;
-  padding: 14px 28px;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-  background: #f0f0f0;
-  border: 2px solid #c0c0c0;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.hover-button:hover {
-  background: #e0e0e0;
-  border-color: #a0a0a0;
-  color: #000;
-  transform: translateY(-2px);
-}
-
-/* Base aesthetic */
 body {
     font-family: 'Helvetica Neue', sans-serif;
-    background-color: #f9f9fb;
+    background-color: #edede9; /* light warm gray */
     color: #333;
     margin: 0;
     padding: 0;
@@ -109,9 +17,11 @@ body {
     padding: 20px;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
+    color: black;
     text-align: center;
-    color: #4a4a4a;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 .intro {
@@ -121,10 +31,13 @@ h1, h2 {
     margin: 0 auto 20px auto;
 }
 
-/* Navigation */
+/* =============================== */
+/* NAVIGATION BAR */
+/* =============================== */
+
 .topnav {
     overflow: hidden;
-    background-color: #e0e0f8;
+    background-color: #333; /* dark gray */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -133,14 +46,14 @@ h1, h2 {
 
 .topnav a {
     text-decoration: none;
-    color: #4a4a4a;
+    color: white;
     padding: 8px 12px;
     border-radius: 8px;
     transition: background-color 0.3s;
 }
 
 .topnav a:hover {
-    background-color: #cfcff5;
+    background-color: #555; /* dark gray on hover */
 }
 
 .icon {
@@ -164,7 +77,10 @@ h1, h2 {
     }
 }
 
-/* Buttons */
+/* =============================== */
+/* BUTTON STYLING */
+/* =============================== */
+
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -174,7 +90,7 @@ h1, h2 {
 }
 
 .hover-button {
-    background-color: ##949494;
+    background-color: #bfbfbf; /* medium gray */
     color: #333;
     padding: 12px 20px;
     border-radius: 12px;
@@ -184,12 +100,17 @@ h1, h2 {
     transition: background-color 0.3s, transform 0.2s;
 }
 
+/* On hover, buttons change to dark gray */
+/* HOVER COLOR CHANGE TO DARK GRAY */
 .hover-button:hover {
-    background-color: ##7f7f7f;
+    background-color: #7f7f7f; /* dark gray on hover */
     transform: translateY(-2px);
 }
 
-/* Lists */
+/* =============================== */
+/* LIST STYLING */
+/* =============================== */
+
 ul {
     list-style: none;
     padding: 0;
@@ -200,9 +121,12 @@ ul li::before {
     content: "✨ ";
 }
 
-/* Images - Smaller aesthetic */
+/* =============================== */
+/* IMAGE STYLING */
+/* =============================== */
+
 .responsive-img {
-    width: 150px;   /* Smaller size */
+    width: 150px; /* smaller, neat */
     height: auto;
     display: block;
     margin: 10px auto;
@@ -218,12 +142,15 @@ ul li::before {
 }
 
 .image-row img {
-    width: 130px;   /* Smaller consistent size in rows */
+    width: 130px; /* consistent small sizing */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* =============================== */
+/* PROJECT CARD STYLING */
+/* =============================== */
 
 .project-detail {
     background: #fff;
@@ -232,7 +159,3 @@ ul li::before {
     margin: 20px 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-
-
-/* STYLE IMAGES */
-/* STYLE NAV BAR */
